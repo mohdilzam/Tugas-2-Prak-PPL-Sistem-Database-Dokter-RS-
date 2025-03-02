@@ -282,4 +282,30 @@ function showMainMenu() {
   console.log('4. Hapus dokter');
   console.log('5. Update jam praktik dokter');
   console.log('6. Keluar');
-  
+  rl.question('Masukkan nomor: ', (choice) => {
+    switch (choice) {
+      case '1':
+        displayAllDoctors();
+        break;
+      case '2':
+        searchDoctor();
+        break;
+      case '3':
+        addNewDoctor();
+        break;
+      case '4':
+        deleteDoctor();
+        break;
+      case '5':
+        updateDoctorPracticeHours();
+        break;
+      case '6':
+        console.log('\nTerminating application. Goodbye!');
+        rl.close();
+        break;
+      default:
+        console.log('\nPilihan tidak valid!');
+        showMainMenu();
+    }
+  });
+}
