@@ -67,3 +67,73 @@ function displayAllDoctors() {
   
   showMainMenu();
 }
+
+// Fungsi untuk mencari dan menampilkan dokter tertentu
+function searchDoctor() {
+  const doctors = readDatabase();
+  
+  if (doctors.length === 0) {
+    console.log('\nBelum ada dokter yang terdaftar di database.');
+    showMainMenu();
+    return;
+  }
+  
+  console.log('\n===== CARI DOKTER =====');
+  console.log('Pilih kriteria pencarian:');
+  console.log('1. Berdasarkan nama');
+  console.log('2. Berdasarkan spesialisasi');
+  console.log('3. Berdasarkan nomor lisensi');
+  console.log('0. Kembali ke menu utama');
+  
+  rl.question('Masukkan pilihan: ', (choice) => {
+    if (choice === '0') {
+      showMainMenu();
+      return;
+    }
+    
+    let searchField;
+    let searchPrompt;
+    
+    switch (choice) {
+      case '1':
+        searchField = 'name';
+        searchPrompt = 'Masukkan nama dokter yang dicari: ';
+        break;
+      case '2':
+        searchField = 'specialization';
+        searchPrompt = 'Masukkan spesialisasi dokter yang dicari: ';
+        break;
+      case '3':
+        searchField = 'licenseNumber';
+        searchPrompt = 'Masukkan nomor lisensi dokter yang dicari: ';
+        break;
+      default:
+        console.log('\nPilihan tidak valid!');
+        searchDoctor();
+        return;
+    }
+    
+    rl.question(searchPrompt, (searchTerm) => {
+      // Lakukan pencarian (case insensitive)
+      const results = doctors.filter(doctor => 
+        doctor[searchField].toLowerCase().includes(searchTerm.toLowerCase())
+      );
+      
+      if (results.length === 0) {
+        console.log(`\nTidak ditemukan dokter dengan ${searchField} yang mengandung "${searchTerm}".`);
+      } else {
+        console.log(`\nDitemukan ${results.length} dokter:`);
+        results.forEach((doctor, index) => {
+          console.log(`\n#${index + 1}`);
+          console.log(`Nama: ${doctor.name}`);
+          console.log(`Spesialisasi: ${doctor.specialization}`);
+          console.log(`Nomor Lisensi: ${doctor.licenseNumber}`);
+          console.log(`Jam Praktek: ${doctor.practiceHours}`);
+          console.log('-------------------------');
+        });
+      }
+      
+      showMainMenu();
+    });
+  });
+}
