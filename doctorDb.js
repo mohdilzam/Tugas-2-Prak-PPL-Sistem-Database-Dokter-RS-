@@ -202,3 +202,22 @@ function deleteDoctor() {
     }
     
     const doctorName = doctors[index].name;
+    // Konfirmasi penghapusan
+    rl.question(`\nAnda yakin ingin menghapus dokter ${doctorName}? (y/n): `, (confirm) => {
+      if (confirm.toLowerCase() === 'y') {
+        // Hapus dokter dari array
+        doctors.splice(index, 1);
+        
+        if (saveDatabase(doctors)) {
+          console.log(`\nDokter ${doctorName} berhasil dihapus dari database.`);
+        } else {
+          console.log('\nGagal menghapus dokter.');
+        }
+      } else {
+        console.log('\nPenghapusan dibatalkan.');
+      }
+      
+      showMainMenu();
+    });
+  });
+}
