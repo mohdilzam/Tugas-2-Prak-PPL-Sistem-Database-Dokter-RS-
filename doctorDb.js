@@ -259,3 +259,16 @@ function updateDoctorPracticeHours() {
     console.log(`Jam Praktik Saat Ini: ${currentPracticeHours}`);
     
     rl.question('Masukkan jam praktik baru: ', (newPracticeHours) => {
+      // Update jam praktik dokter
+      doctors[index].practiceHours = newPracticeHours;
+      
+      if (saveDatabase(doctors)) {
+        console.log(`\nJam praktik dokter ${doctorName} berhasil diupdate dari "${currentPracticeHours}" menjadi "${newPracticeHours}".`);
+      } else {
+        console.log('\nGagal mengupdate jam praktik dokter.');
+      }
+      
+      showMainMenu();
+    });
+  });
+}
