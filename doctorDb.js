@@ -24,3 +24,14 @@ function initializeDatabase() {
     process.exit(1);
   }
 }
+
+// Fungsi untuk membaca data dari database
+function readDatabase() {
+  try {
+    const data = fs.readFileSync(dbPath, 'utf8');
+    return JSON.parse(data);
+  } catch (error) {
+    console.error('Error saat membaca database:', error);
+    return [];
+  }
+}
