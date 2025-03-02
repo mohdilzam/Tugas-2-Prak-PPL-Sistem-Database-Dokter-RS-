@@ -170,3 +170,35 @@ showMainMenu();
 });
 });
 }
+
+// Fungsi untuk menghapus dokter
+function deleteDoctor() {
+  const doctors = readDatabase();
+  
+  if (doctors.length === 0) {
+    console.log('\nBelum ada dokter yang terdaftar di database.');
+    showMainMenu();
+    return;
+  }
+  
+  console.log('\n===== HAPUS DOKTER =====');
+  doctors.forEach((doctor, index) => {
+    console.log(`${index + 1}. ${doctor.name} - ${doctor.specialization}`);
+  });
+  
+  rl.question('\nMasukkan nomor dokter yang akan dihapus (0 untuk batal): ', (choice) => {
+    const index = parseInt(choice) - 1;
+    
+    if (choice === '0') {
+      console.log('\nPenghapusan dibatalkan.');
+      showMainMenu();
+      return;
+    }
+    
+    if (isNaN(index) || index < 0 || index >= doctors.length) {
+      console.log('\nNomor tidak valid!');
+      deleteDoctor();
+      return;
+    }
+    
+    const doctorName = doctors[index].name;
