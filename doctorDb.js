@@ -272,3 +272,14 @@ function updateDoctorPracticeHours() {
     });
   });
 }
+
+/ Menampilkan menu utama
+function showMainMenu() {
+  console.log('\nPilih aksi:');
+  console.log('1. Lihat daftar dokter');
+  console.log('2. Cari dokter');
+  console.log('3. Tambah dokter baru');
+  console.log('4. Hapus dokter');
+  console.log('5. Update jam praktik dokter');
+  console.log('6. Keluar');
+  
