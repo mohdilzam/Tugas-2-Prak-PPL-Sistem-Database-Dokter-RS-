@@ -1,0 +1,32 @@
+[
+  {
+    "name": "dr Ahmad Ramadhan, Sp.JP",
+    "specialization": "Spesialis Jantung",
+    "licenseNumber": "03649746217",
+    "practiceHours": "Senin - Rabu (08:00 - 12:00)"
+  },
+  {
+    "name": " dr. Siti Nurhaliza, Sp.A",
+    "specialization": "Spesialis Anak",
+    "licenseNumber": "273927482938",
+    "practiceHours": "Selasa - Kamis (10:00 - 14:00)"
+  },
+  {
+    "name": "dr. Rina Kusuma, Sp.M",
+    "specialization": "Spesialis Mata ",
+    "licenseNumber": "538203729293",
+    "practiceHours": "Rabu - Sabtu (11:00 - 15:00)"
+  },
+  {
+    "name": "dr. Hana Prasetyo, Sp.THT-KL",
+    "specialization": "Spesialis THT",
+    "licenseNumber": "6183930183738",
+    "practiceHours": "Senin - Jumat (12:00 - 16:00)"
+  },
+  {
+    "name": "dr. Dimas Pratama, Sp.P",
+    "specialization": "Spesialis Paru",
+    "licenseNumber": "17239222939211",
+    "practiceHours": "Kamis - Sabtu (10:00 - 14:00)"
+  }
+]
