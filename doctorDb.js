@@ -273,7 +273,7 @@ function updateDoctorPracticeHours() {
   });
 }
 
-/ Menampilkan menu utama
+// Menampilkan menu utama
 function showMainMenu() {
   console.log('\nPilih aksi:');
   console.log('1. Lihat daftar dokter');
@@ -309,3 +309,18 @@ function showMainMenu() {
     }
   });
 }
+
+// Fungsi utama untuk menjalankan aplikasi
+function main() {
+  initializeDatabase();
+  
+  console.log('\n======================================');
+  console.log('  SISTEM DATABASE DOKTER RUMAH SAKIT  ');
+  console.log('======================================');
+  console.log('Selamat datang di sistem manajemen data dokter');
+  
+  showMainMenu();
+}
+
+// Menjalankan aplikasi
+main();
