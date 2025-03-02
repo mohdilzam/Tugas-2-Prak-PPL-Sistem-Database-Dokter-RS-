@@ -155,3 +155,18 @@ const newDoctor = {
   practiceHours
 };
 
+// Menambahkan ke array dan menyimpan
+doctors.push(newDoctor);
+          
+if (saveDatabase(doctors)) {
+  console.log('\nDokter baru berhasil ditambahkan!');
+} else {
+  console.log('\nGagal menambahkan dokter baru.');
+}
+
+showMainMenu();
+});
+});
+});
+});
+}
