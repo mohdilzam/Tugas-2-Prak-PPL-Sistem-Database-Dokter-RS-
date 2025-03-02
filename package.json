@@ -2,5 +2,10 @@
   "name": "doctor-database",
   "version": "1.0.0",
   "description": "Sistem database sederhana untuk mengelola dokter rumah sakit",
-  "main": "doctorDb.js"
+  "main": "doctorDb.js",
+
+  "scripts": {
+    "start": "node doctorDb.js",
+    "dev": "node doctorDb.js"
+  }
 }
