@@ -145,3 +145,13 @@ function addNewDoctor() {
       rl.question('Nomor Lisensi: ', (licenseNumber) => {
         rl.question('Jam Praktek: ', (practiceHours) => {
           const doctors = readDatabase();
+
+
+// Membuat objek dokter baru
+const newDoctor = {
+  name,
+  specialization,
+  licenseNumber,
+  practiceHours
+};
+
