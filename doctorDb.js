@@ -221,3 +221,41 @@ function deleteDoctor() {
     });
   });
 }
+
+// Fungsi untuk mengupdate jam praktik dokter
+function updateDoctorPracticeHours() {
+  const doctors = readDatabase();
+  
+  if (doctors.length === 0) {
+    console.log('\nBelum ada dokter yang terdaftar di database.');
+    showMainMenu();
+    return;
+  }
+  
+  console.log('\n===== UPDATE JAM PRAKTIK DOKTER =====');
+  doctors.forEach((doctor, index) => {
+    console.log(`${index + 1}. ${doctor.name} - ${doctor.specialization} (Jam Praktik: ${doctor.practiceHours})`);
+  });
+  
+  rl.question('\nMasukkan nomor dokter yang akan diupdate jam praktiknya (0 untuk batal): ', (choice) => {
+    const index = parseInt(choice) - 1;
+    
+    if (choice === '0') {
+      console.log('\nUpdate dibatalkan.');
+      showMainMenu();
+      return;
+    }
+    
+    if (isNaN(index) || index < 0 || index >= doctors.length) {
+      console.log('\nNomor tidak valid!');
+      updateDoctorPracticeHours();
+      return;
+    }
+    
+    const doctorName = doctors[index].name;
+    const currentPracticeHours = doctors[index].practiceHours;
+    
+    console.log(`\nDokter: ${doctorName}`);
+    console.log(`Jam Praktik Saat Ini: ${currentPracticeHours}`);
+    
+    rl.question('Masukkan jam praktik baru: ', (newPracticeHours) => {
