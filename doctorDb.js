@@ -45,3 +45,25 @@ function saveDatabase(data) {
     console.error('Error saat menyimpan ke database:', error);
     return false;
   }
+}
+
+// Fungsi untuk menampilkan semua dokter
+function displayAllDoctors() {
+  const doctors = readDatabase();
+  
+  if (doctors.length === 0) {
+    console.log('\nBelum ada dokter yang terdaftar di database.');
+  } else {
+    console.log('\n===== DAFTAR DOKTER =====');
+    doctors.forEach((doctor, index) => {
+      console.log(`\n#${index + 1}`);
+      console.log(`Nama: ${doctor.name}`);
+      console.log(`Spesialisasi: ${doctor.specialization}`);
+      console.log(`Nomor Lisensi: ${doctor.licenseNumber}`);
+      console.log(`Jam Praktek: ${doctor.practiceHours}`);
+      console.log('-------------------------');
+    });
+  }
+  
+  showMainMenu();
+}
