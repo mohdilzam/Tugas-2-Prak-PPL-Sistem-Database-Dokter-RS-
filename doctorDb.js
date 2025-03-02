@@ -137,3 +137,11 @@ function searchDoctor() {
     });
   });
 }
+
+// Fungsi untuk menambahkan dokter baru
+function addNewDoctor() {
+  rl.question('\nNama dokter: ', (name) => {
+    rl.question('Spesialisasi: ', (specialization) => {
+      rl.question('Nomor Lisensi: ', (licenseNumber) => {
+        rl.question('Jam Praktek: ', (practiceHours) => {
+          const doctors = readDatabase();
