@@ -35,3 +35,13 @@ function readDatabase() {
     return [];
   }
 }
+
+// Fungsi untuk menyimpan data ke database
+function saveDatabase(data) {
+  try {
+    fs.writeFileSync(dbPath, JSON.stringify(data, null, 2));
+    return true;
+  } catch (error) {
+    console.error('Error saat menyimpan ke database:', error);
+    return false;
+  }
